@@ -17,7 +17,7 @@ class GrpcTransport extends TransportStream {
         const cleanLevel = level.replace(/\x1B\[[0-9;]*m/g, "");
         const cleanMessage = message.replace(/\x1B\[[0-9;]*m/g, "");
 
-        grpcClient.SendLog({ timestamp, level: cleanLevel, message: cleanMessage }, (err, response) => {
+        grpcClient.SendLog({ node: "node1", timestamp, level: cleanLevel, message: cleanMessage }, (err, response) => {
             if (err) {
                 console.error("Failed to send log to gRPC server:", err);
             } else {

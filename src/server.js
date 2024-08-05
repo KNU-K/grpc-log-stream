@@ -1,6 +1,6 @@
+const express = require("express");
 const grpc = require("@grpc/grpc-js");
 const protoLoader = require("@grpc/proto-loader");
-const fs = require("fs");
 const path = require("path");
 
 const PROTO_PATH = path.join(__dirname, "proto/logger.proto");
@@ -14,8 +14,8 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 
 const { LoggerService } = grpc.loadPackageDefinition(packageDefinition);
 
-const server = new grpc.Server();
-server.addService(LoggerService.Logger.service, {
+const grpcServer = new grpc.Server();
+grpcServer.addService(LoggerService.Logger.service, {
     sendLog: async (call, callback) => {
         try {
             console.log(call.request);
@@ -25,10 +25,23 @@ server.addService(LoggerService.Logger.service, {
         }
     },
 });
-server.bindAsync("localhost:8080", grpc.ServerCredentials.createInsecure(), (err, port) => {
-    if (err) {
-        console.error("Server bind failed:", err);
-        return;
-    }
-    console.log(`Server running at http://localhost:8080`);
+
+const app = express();
+const PORT = 3000;
+
+// Middleware and routes for Express
+app.get("/", (req, res) => {
+    res.send("Hello from Express!");
+});
+
+app.listen(PORT, () => {
+    console.log(`Express server running at http://localhost:${PORT}`);
+    grpcServer.bindAsync("localhost:8080", grpc.ServerCredentials.createInsecure(), (err, port) => {
+        if (err) {
+            console.error("gRPC Server bind failed:", err);
+            return;
+        }
+        console.log(`gRPC Server running at http://localhost:8080`);
+        grpcServer.start();
+    });
 });
