@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package LoggerService;
+
+service Logger{
+    rpc  SendLog(LogRequest) returns (LogResponse);
+}
+
+message LogRequest{
+    string node = 1;
+    string level = 2;
+    string message = 3;
+}
+
+message LogResponse{
+    bool success = 1;
+}
