@@ -8,8 +8,9 @@ service Logger{
 
 message LogRequest{
     string node = 1;
-    string level = 2;
-    string message = 3;
+    string timestamp = 2;
+    string level = 3;
+    string message = 4;
 }
 
 message LogResponse{
