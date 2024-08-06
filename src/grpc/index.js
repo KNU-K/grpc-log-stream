@@ -1,16 +1,10 @@
 const protoLoader = require("@grpc/proto-loader");
 const path = require("path");
 const grpc = require("@grpc/grpc-js");
+const gRPCService = require("./service");
 
 const PROTO_PATH = path.join(__dirname, "proto/logger.proto");
-const sendLog = async (call, callback) => {
-    try {
-        console.log(call.request);
-        callback(null, { success: true });
-    } catch (err) {
-        callback(null, { success: false });
-    }
-};
+
 async function gRPCSetup({ server }) {
     const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
         keepCase: true,
@@ -22,7 +16,7 @@ async function gRPCSetup({ server }) {
     const { LoggerService } = grpc.loadPackageDefinition(packageDefinition);
 
     server.addService(LoggerService.Logger.service, {
-        sendLog: sendLog,
+        sendLog: gRPCService.sendLog,
     });
 
     return server;

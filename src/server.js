@@ -17,7 +17,10 @@ const PORT = 3000;
                 return;
             }
             console.log(`gRPC Server running at http://localhost:8080`);
-            grpcServer.start();
+            /**
+             * deprecated
+             * grpcServer.start();
+             **/
         });
     });
 })();
