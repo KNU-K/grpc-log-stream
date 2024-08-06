@@ -37,7 +37,6 @@ async function startConsumer({ channel }) {
                         timestamp = await parseTimestamp(timestamp);
                         if (timestamp) {
                             timestamp = moment(timestamp, ["YYYY-MM-DD HH:mm:ss.SSS", moment.ISO_8601]).toISOString();
-                            console.log(timestamp);
                             const query = `
                                 INSERT INTO logs (node, timestamp, level, message)
                                 VALUES ($1, $2, $3, $4)
@@ -45,8 +44,8 @@ async function startConsumer({ channel }) {
                             const values = [node, timestamp, level, message];
 
                             await pool.query(query, values);
-                            console.log("Log inserted into database");
-                            await sendLogToClients(logObject);
+                            const result = await pool.query("select * from logs order by sequence_number desc limit 1");
+                            await sendLogToClients(result.rows[0]);
                         } else {
                             console.error("Invalid timestamp format:", timestamp);
                         }
