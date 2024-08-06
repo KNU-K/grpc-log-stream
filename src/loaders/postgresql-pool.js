@@ -8,5 +8,9 @@ module.exports = async () => {
         password: "mysecretpassword",
         port: 5432,
     });
+    pool.connect((err) => {
+        if (err) throw err;
+        console.log("good");
+    });
     return pool;
 };
