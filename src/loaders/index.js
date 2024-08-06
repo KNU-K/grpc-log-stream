@@ -1,4 +1,5 @@
 const dependencyInjectionLoader = require("./dependency-injection");
+const expressLoader = require("./express");
 const grpcLoader = require("./grpc");
 const postgreSQLPoolLoader = require("./postgresql-pool");
 const rabbitMQLoader = require("./rabbitmq");
@@ -13,4 +14,6 @@ module.exports = async ({ app }) => {
 
     await dependencyInjectionLoader({ pool, channel, grpcServer });
     console.log("Dependency Injection 로드 완료..!");
+    await expressLoader({ app });
+    console.log("express 로드 완료..!");
 };
