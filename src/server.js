@@ -2,10 +2,13 @@ const http = require("http");
 const createApp = require("./app");
 const { default: Container } = require("typedi");
 const grpc = require("@grpc/grpc-js");
+const cors = require("cors");
 
 const PORT = 3000;
+
 (async function serverBootStrap() {
     const app = await createApp();
+
     const server = http.createServer(app);
     const grpcServer = Container.get("grpc-server");
     server.listen(PORT, () => {
