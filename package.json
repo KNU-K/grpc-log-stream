@@ -1,20 +1,24 @@
 {
-  "name": "voice-chat",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "@grpc/grpc-js": "^1.11.1",
-    "@grpc/proto-loader": "^0.7.13",
-    "express": "^4.19.2",
-    "pg": "^8.12.0",
-    "winston": "^3.13.1",
-    "winston-transport": "^4.7.1"
-  }
+    "name": "voice-chat",
+    "version": "1.0.0",
+    "main": "./src/server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon --trace-deprecation"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "@grpc/grpc-js": "^1.11.1",
+        "@grpc/proto-loader": "^0.7.13",
+        "amqplib": "^0.10.4",
+        "express": "^4.19.2",
+        "moment": "^2.30.1",
+        "pg": "^8.12.0",
+        "typedi": "^0.10.0",
+        "winston": "^3.13.1",
+        "winston-transport": "^4.7.1"
+    }
 }
