@@ -58,11 +58,14 @@ module.exports = async ({ app }) => {
         }
 
         // Add the client to the list of clients
-        let clients = Container.get("clients");
-        clients.push(res);
-
+        const clients = Container.get("clients");
+        clients.addConnection(res);
+        console.log("클라 연결 성공");
         req.on("close", () => {
-            clients = clients.filter((client) => client !== res);
+            if (!clients.removeConnection(res)) {
+                throw new Error("클라 삭제 실패");
+            }
+            console.log("클라 삭제 성공");
         });
     });
 };

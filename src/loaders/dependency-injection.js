@@ -1,7 +1,6 @@
 const { Pool } = require("pg");
 const { default: Container } = require("typedi");
 
-let clients = [];
 /**
  * @param {Object} options
  * @param {import("@grpc/grpc-js").Server} grpcServer
@@ -10,9 +9,9 @@ let clients = [];
  *
  * @returns {Promise<void>}
  */
-module.exports = async ({ pool, grpcServer, channel }) => {
+module.exports = async ({ pool, grpcServer, channel, clientConnection }) => {
     Container.set("pool", pool);
     Container.set("grpc-server", grpcServer);
     Container.set("mq-channel", channel);
-    Container.set("clients", clients);
+    Container.set("clients", clientConnection);
 };
