@@ -7,15 +7,18 @@ CREATE DATABASE SERVER_LOG;
 -- TimescaleDB 확장 활성화
 CREATE EXTENSION IF NOT EXISTS timescaledb;
 
-drop table logs;
+-- 기존 테이블 삭제 (이미 존재하는 경우)
+DROP TABLE IF EXISTS logs;
+
 -- 테이블 생성
 CREATE TABLE logs (
-    id BIGSERIAL PRIMARY KEY,
+    sequence_id BIGSERIAL,
+    timestamp TIMESTAMPTZ NOT NULL,
     node TEXT,
-    timestamp TIMESTAMPTZ,
     level TEXT,
-    message TEXT
+    message TEXT,
+    PRIMARY KEY (timestamp, sequence_id)
 );
 
 -- 하이퍼테이블 생성
-SELECT create_hypertable('logs', 'id');
+SELECT create_hypertable('logs', 'timestamp');

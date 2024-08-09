@@ -2,7 +2,6 @@ const http = require("http");
 const createApp = require("./app");
 const { default: Container } = require("typedi");
 const grpc = require("@grpc/grpc-js");
-const cors = require("cors");
 
 const PORT = 3000;
 
