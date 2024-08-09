@@ -11,7 +11,7 @@ async function parseTimestamp(timestamp) {
     }
     return null;
 }
-
+var count = 1;
 /** Broadcast */
 async function sendLogToClients(logMessage) {
     const clients = Container.get("clients");
@@ -26,8 +26,9 @@ async function startConsumer({ channel }) {
             "log_queue",
             async (msg) => {
                 if (msg !== null) {
+                    console.log(count++);
                     const logMessage = msg.content.toString();
-                    console.log("Received:", logMessage);
+                    // console.log("Received:", logMessage);
 
                     // 로그 메시지를 데이터베이스에 삽입
                     try {

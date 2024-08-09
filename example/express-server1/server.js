@@ -24,6 +24,6 @@ app.use((err, req, res, next) => {
 
 const server = createServer(app);
 
-server.listen(5000, () => {
-    logger.info("Server running on port 3000");
+server.listen(5002, () => {
+    logger.info("Server running on port 5002");
 });

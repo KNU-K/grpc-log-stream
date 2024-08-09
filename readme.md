@@ -30,7 +30,11 @@
 ## 벤치마킹
 
 -   timeScaleDB 벤치 마킹
-    -   2024-08-06
+
+    -   [2024-08-06](./docs/benchmark.md)
+
+-   부하 테스트
+    -   [2024-08-09](./docs/benchmark2.md)
 
 ## 유효성 검증
 
@@ -38,7 +42,15 @@
 
 ## 부하 테스트
 
-예정
+1차 부하테스트 => cluster 3개 기준 초당 1000건의 로그 수용.
+
+-   서버 스펙
+
+    `CPU - 13th Gen Intel(R) Core(TM) i5-1340P`
+
+    `Memory - 15.6GB`
+
+    `oS - windows 11`
 
 ## 대시보드
 
