@@ -18,6 +18,47 @@
 
 큰 설정 셋업 없이, 해당 프로젝트를 바로 사용하여 수집을 할 수 있게 된다. 개발의 속도가 중요한 부분에서 용이하게 쓰일 수 있도록 하는 것을 목적으로 한다.
 
+## 폴더 구조
+
+```
+📦src
+ ┣ 📂amqp
+ ┃ ┣ 📜consumer.js
+ ┃ ┗ 📜index.js
+ ┣ 📂api
+ ┃ ┣ 📂historical-logs
+ ┃ ┃ ┣ 📜controller.js
+ ┃ ┃ ┗ 📜index.js
+ ┃ ┣ 📂logs
+ ┃ ┃ ┣ 📜controller.js
+ ┃ ┃ ┗ 📜index.js
+ ┃ ┗ 📜inedx.js
+ ┣ 📂dashboard -- react 에서 build된 파일
+ ┃ ┣ 📂static
+ ┃ ┃ ┣ 📂css
+ ┃ ┃ ┗ 📂js
+ ┣ 📂grpc
+ ┃ ┣ 📂proto
+ ┃ ┃ ┗ 📜logger.proto
+ ┃ ┣ 📂service
+ ┃ ┃ ┗ 📜index.js
+ ┃ ┗ 📜index.js
+ ┣ 📂loaders
+ ┃ ┣ 📜client-connection.js
+ ┃ ┣ 📜dependency-injection.js
+ ┃ ┣ 📜express.js
+ ┃ ┣ 📜grpc.js
+ ┃ ┣ 📜index.js
+ ┃ ┣ 📜postgresql-pool.js
+ ┃ ┗ 📜rabbitmq.js
+ ┣ 📂logger
+ ┣ 📂utils
+ ┃ ┗ 📜client-connection.js
+ ┣ 📜app.js
+ ┗ 📜server.js
+
+```
+
 ## 사용 기술
 
 | 기술                                 | 용도                                                                                                                                                                                                    |
