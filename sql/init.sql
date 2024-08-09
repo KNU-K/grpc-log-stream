@@ -12,12 +12,12 @@ DROP TABLE IF EXISTS logs;
 
 -- 테이블 생성
 CREATE TABLE logs (
-    sequence_id BIGSERIAL,
+    sequence_number BIGSERIAL,
     timestamp TIMESTAMPTZ NOT NULL,
     node TEXT,
     level TEXT,
     message TEXT,
-    PRIMARY KEY (timestamp, sequence_id)
+    PRIMARY KEY (timestamp, sequence_number)
 );
 
 -- 하이퍼테이블 생성

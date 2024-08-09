@@ -30,11 +30,11 @@
 ## 벤치마킹
 
 -   timeScaleDB 벤치 마킹
-    -   2024-08-06
+    -   [2024-08-06](./docs/benchmark.md)
 
 ## 유효성 검증
 
-예정
+-   필터 기능 유효성 검증 완료 (2024.08)
 
 ## 부하 테스트
 
@@ -42,4 +42,10 @@
 
 ## 대시보드
 
-![alt text](image.png)
+-   v1
+    ![alt text](./docs/mode-v1.png)
+-   v1-1
+    -   Dark 모드
+        ![alt text](./docs/dark-mode.png)
+    -   Light 모드
+        ![alt text](./docs/light-mode.png)
