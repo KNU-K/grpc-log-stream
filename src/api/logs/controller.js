@@ -37,6 +37,6 @@ module.exports = async (req, res) => {
         if (!clients.removeConnection(res)) {
             throw new Error("클라 삭제 실패");
         }
-        console.log("클라 삭제 성공");
+        console.log("클라 삭제 성공", clients.length);
     });
 };
