@@ -30,15 +30,11 @@
 ## 벤치마킹
 
 -   timeScaleDB 벤치 마킹
-<<<<<<< HEAD
 
     -   [2024-08-06](./docs/benchmark.md)
 
 -   부하 테스트
     -   [2024-08-09](./docs/benchmark2.md)
-=======
-    -   [2024-08-06](./docs/benchmark.md)
->>>>>>> 4593e778c794b0ab1158cec8c745e860f7737fdc
 
 ## 유효성 검증
 
