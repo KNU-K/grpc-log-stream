@@ -3,8 +3,8 @@ const historicalLog = require("./historical-logs");
 const logs = require("./logs");
 const createRouter = () => {
     const router = Router();
-    historicalLog({ router });
-    logs({ router });
+    router.use("/historical-logs", historicalLog());
+    router.use("/logs", logs());
     return router;
 };
 module.exports = createRouter;
